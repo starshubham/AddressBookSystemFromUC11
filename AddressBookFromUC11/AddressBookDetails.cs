@@ -71,7 +71,7 @@ namespace AddressBookFromUC11
                     Console.WriteLine($"\n**** Welcome To {addressBook.nameOfAddressBook} Address Book System ****");
 
                     Console.Write("\n1.Add New contact" +
-                                      "\n2.Display all contacts" +
+                                      "\n2.Display all contacts in sorted order" +
                                       "\n3.Edit Record" +
                                       "\n4.Delete Records" +
                                       "\n5.Search Contact Records" +
@@ -85,8 +85,8 @@ namespace AddressBookFromUC11
                             addressBook.AddContact();
                             break;
                         case 2:
-                            addressBook.GetAllContacts();
-                            break;
+                            addressBook.GetAllContacts();   // UC11 - sorted by name
+                            break;                          // UC12 - sorted by city, state or zip
                         case 3:
                             addressBook.EditContact();
                             break;
