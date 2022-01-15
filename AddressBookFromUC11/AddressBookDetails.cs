@@ -323,7 +323,7 @@ namespace AddressBookFromUC11
                     return;
                 }
                 foreach (KeyValuePair<string, List<ContactDetails>> keyValuePair in stateToContactMap) // To get count of contacts in all cities
-                    Console.WriteLine("Nunber of contacts in state {0} is {1}", keyValuePair.Key, keyValuePair.Value.Count());
+                    Console.WriteLine("Number of contacts in state {0} is {1}", keyValuePair.Key, keyValuePair.Value.Count());
             }
             catch (Exception ex)
             {
