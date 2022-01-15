@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AddressBookFromUC11
 {
@@ -68,42 +68,13 @@ namespace AddressBookFromUC11
             }
         }
 
-        public static void CsvSerialise()
+        public static void JsonSerializeAddressBook()
         {
-            try
-            {
-                string csvPath = @"C:\Users\My Laptop\Desktop\BrProjects\AddressBookFromUC11\AddressBookFromUC11\Files\CsvFile.csv";
-                var writer = File.AppendText(csvPath);
+            string jsonPath = @"C:\Users\My Laptop\Desktop\BrProjects\AddressBookFromUC11\AddressBookFromUC11\Files\JSONFile.json";
+            string result = JsonConvert.SerializeObject(addressBook);
 
+            File.AppendAllText(jsonPath, result);
 
-                foreach (KeyValuePair<string, List<PersonsDetails>> item in addressBook)
-                {
-                    foreach (var items in item.Value)
-                    {
-                        writer.WriteLine(items.FirstName + ", " + items.LastName + ", " + items.PhoneNumber + ", " + items.Email + ", " + items.City + ", " + items.State + ", " + items.ZipCode + ".");
-
-                    }
-                    writer.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
-
-        public static void CsvDeserialise()
-        {
-            string csvPath = @"C:\Users\My Laptop\Desktop\BrProjects\AddressBookFromUC11\AddressBookFromUC11\Files\CsvFile.csv";
-            using (var reader = new StreamReader(csvPath))
-
-            {
-                string s = " ";
-                while ((s = reader.ReadLine()) != null)
-                {
-                    Console.WriteLine(s);
-                }
-            }
         }
     }
 }

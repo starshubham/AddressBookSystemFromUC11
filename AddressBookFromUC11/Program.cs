@@ -3,8 +3,8 @@ using System.IO;
 
 namespace AddressBookFromUC11
 {
-    /* UC14 :- Ability to Read or Write the Address Book with Persons Contact as CSV File
-               - Use OpenCSV Library
+    /* UC15 :- Ability to Read or Write the Address Book with Persons Contact as JSON File
+               - Use GSON Library
      */
     class Program
     {
@@ -44,8 +44,7 @@ namespace AddressBookFromUC11
                     key = Convert.ToInt32(Console.ReadLine());
                 }
                 AddressBook.AddTo(book);
-                AddressBook.CsvSerialise();
-                AddressBook.CsvDeserialise();
+                AddressBook.JsonSerializeAddressBook();
                 numberBook++;
             }
         }
